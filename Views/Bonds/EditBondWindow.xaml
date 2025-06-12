@@ -1,0 +1,47 @@
+﻿<Window x:Class="WaveClubAppEscritorio2.Views.EditBondWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Editar Bono" Height="320" Width="450">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Editar Bono"  x:Name="tittle" FontSize="18" FontWeight="Bold" Margin="0,0,0,10" Grid.Row="0"/>
+
+        <TextBlock Text="Actividad:" Grid.Row="1" VerticalAlignment="Center"/>
+        <ComboBox Grid.Row="1" Margin="100,0,0,0" Width="200" Height="25"
+          SelectedValue="{Binding NameActivity, Mode=TwoWay}" 
+          SelectedValuePath="Content">
+            <ComboBoxItem Content="Surf"/>
+            <ComboBoxItem Content="Windsurf"/>
+            <ComboBoxItem Content="Natación"/>
+            <ComboBoxItem Content="Piragüismo"/>
+        </ComboBox>
+
+        <TextBlock Text="Nivel:" Grid.Row="2" VerticalAlignment="Center"/>
+        <ComboBox Grid.Row="2" Margin="100,0,0,0" Width="200" Height="25"
+                  SelectedValue="{Binding Level}" SelectedValuePath="Tag">
+            <ComboBoxItem Content="Discapacidad" Tag="-1"/>
+            <ComboBoxItem Content="Niños" Tag="0"/>
+            <ComboBoxItem Content="Principiantes" Tag="1"/>
+            <ComboBoxItem Content="Avanzados" Tag="2"/>
+        </ComboBox>
+
+        <TextBlock Text="Descripción:" Grid.Row="3" VerticalAlignment="Center"/>
+        <TextBox Text="{Binding Description}" Grid.Row="3" Margin="100,0,0,0" Width="200" Height="25"/>
+
+        <TextBlock Text="Precio:" Grid.Row="4" VerticalAlignment="Center"/>
+        <TextBox Text="{Binding Price}" Grid.Row="4" Margin="100,0,0,0" Width="200" Height="25"/>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="5" Margin="0,10,0,0">
+            <Button Content="Guardar" x:Name="btnSave" Margin="5" Background="#FF04A7B0" Foreground="White" Click="btnSave_Click"/>
+            <Button Content="Cancelar" Command="{Binding CancelCommand}" Margin="5" Background="#FF04A7B0" Foreground="White"/>
+        </StackPanel>
+    </Grid>
+</Window>
